@@ -1,7 +1,4 @@
 import { 
-  Component, 
-  createRef, 
-  FormEvent, 
   useRef, 
   useState 
 } from 'react';
@@ -19,7 +16,7 @@ interface ModalAddFoodProps {
   handleAddFood: (data: IAddFood) => void;
 }
 
-type IAddFood = Omit<IFood, 'id'>;
+type IAddFood = Omit<IFood, 'id' | 'available'>;
 
 export function ModalAddFood({ isOpen, setIsOpen, handleAddFood }: ModalAddFoodProps) {
 
