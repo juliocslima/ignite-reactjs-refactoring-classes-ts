@@ -1,4 +1,4 @@
-import { Component, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import { Header } from '../../components/Header';
 import api from '../../services/api';
@@ -17,6 +17,15 @@ export function Dashboard() {
   const [editingFood, setEditingFood] = useState<IFood>({} as IFood);
   const [modalOpen, setModalOpen] = useState(false);
   const [editModalOpen, setEditModalOpen] = useState(false);
+
+  useEffect(() => {
+    async function getFoods() {
+      const response = await api.get('/foods');
+
+      setFoods(response.data);
+    }
+    getFoods()
+  }, [])
 
   const toggleModal = () => {
     setModalOpen(!modalOpen);

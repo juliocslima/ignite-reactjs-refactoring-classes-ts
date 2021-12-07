@@ -1,7 +1,4 @@
-import { 
-  useRef, 
-  useState 
-} from 'react';
+import { useRef } from 'react';
 import { FiCheckSquare } from 'react-icons/fi';
 import { FormHandles } from '@unform/core';
 
@@ -19,11 +16,6 @@ interface ModalAddFoodProps {
 type IAddFood = Omit<IFood, 'id' | 'available'>;
 
 export function ModalAddFood({ isOpen, setIsOpen, handleAddFood }: ModalAddFoodProps) {
-
-  const [image, setImage] = useState('');
-  const [name, setName] = useState('');
-  const [price, setPrice] = useState(0);
-  const [description, setDescription] = useState('');
 
   const formRef = useRef<FormHandles>(null);
 
